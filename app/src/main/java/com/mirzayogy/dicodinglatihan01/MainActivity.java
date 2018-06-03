@@ -14,6 +14,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnCalculate;
     private TextView tvResult;
 
+    private static final String STATE_HASIL = "state_hasil";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnCalculate = (Button)findViewById(R.id.btn_calculate);
         tvResult = (TextView)findViewById(R.id.tv_result);
         btnCalculate.setOnClickListener(this);
+
+        if (savedInstanceState != null){
+            String hasil = savedInstanceState.getString(STATE_HASIL);
+            tvResult.setText(hasil);
+        }
     }
 
     @Override
@@ -53,5 +60,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 tvResult.setText(String.valueOf(volume));
             }
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+
+        outState.putString(STATE_HASIL, tvResult.getText().toString());
+        super.onSaveInstanceState(outState);
     }
 }
