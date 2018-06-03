@@ -17,6 +17,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        edtWidth = (EditText)findViewById(R.id.edt_width);
+        edtHeight = (EditText)findViewById(R.id.edt_height);
+        edtLength = (EditText)findViewById(R.id.edt_length);
+        btnCalculate = (Button)findViewById(R.id.btn_calculate);
+        tvResult = (TextView)findViewById(R.id.tv_result);
+
     }
 
     @Override
